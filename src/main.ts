@@ -1,9 +1,11 @@
 import {App, Editor, MarkdownView, Modal, Notice, Plugin} from 'obsidian';
 import {DEFAULT_SETTINGS, MyPluginSettings, SampleSettingTab} from "./settings";
+import {Notice, Plugin} from 'obsidian';
+
 
 // Remember to rename these classes and interfaces!
 
-export default class MyPlugin extends Plugin {
+export default class HelloWorldPlugin extends Plugin {
 	settings: MyPluginSettings;
 
 	async onload() {
@@ -13,6 +15,10 @@ export default class MyPlugin extends Plugin {
 		this.addRibbonIcon('dice', 'Sample', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 			new Notice('This is a notice!');
+		});
+
+		this.addRibbonIcon('dice','Greet', ()=>{
+			new Notice('Hello World!');
 		});
 
 		// This adds a status bar item to the bottom of the app. Does not work on mobile apps.
